@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Base{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        {% comment %} <a class="navbar-brand"     href="">acad798c-4c6c-4c0a-bb6e-f52fc0cc9867 </a> {% endcomment %}
+        <a class="navbar-brand"     href="">Brand </a>
+        <ul class="navbar-nav me-auto>
+            {% block navbar-items %}
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'blog-about' %}">About</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" onclick="toggleDropdown(event)">Services👇</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Web Development</a></li>
+                    <li><a class="dropdown-item" href="#">SEO</a></li>
+                    <li><a class="dropdown-item" href="#">Marketing</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/contact">Contact</a>
+            </li>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                {% comment %} <div>
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div>
+                        {{message}}
+                    </div>
+                    {%endfor%}
+                    {%endif%} {% endcomment %}
+                <form class="d-flex search-form" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-primary" type="submit">Search</button>
+                </form>
+            </div>
+                </div>
+                {% endblock %}
+        </ul>
+
+        <!-- Theme Toggle -->
+        
+
+        <div class="toggle-wrapper">
+            <label class="toggle-switch">
+                <input type="checkbox" id="toggle-checkbox">
+                <span class="slider"></span>
+            </label>
+            <span id="toggle-icon" class="toggle-icon sun">☀️</span>
+        </div>
+    </nav>
+    <div class="navbar-separator"></div>
+
+    {% if messages %}
+        {%for message in messages%}
+            <div {{message.tags}}>
+                {{message}}
+            </div>
+        {%endfor%}
+    {%endif%}
+
+
+    <!-- Main Content -->
+    {% block content %}
+    {% endblock %}
+    <script src="{% static 'js/daynight.js' %}"></script>
+
+    <script>
+        function toggleDropdown(event) {
+            event.preventDefault();
+            const dropdownMenu = event.target.nextElementSibling;
+            dropdownMenu.classList.toggle('show');
+        }
+    </script>
+</body>
+
+</html>

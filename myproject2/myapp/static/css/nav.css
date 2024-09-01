@@ -1,0 +1,318 @@
+/* Navbar container */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--navbar-background-light);
+    color: var(--navbar-text-light);
+    position: relative;
+    z-index: 1000;
+    flex-wrap: wrap;
+    /* Allow items to wrap on smaller screens */
+}
+
+/* Brand styling */
+.navbar-brand {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: var(--navbar-text-light);
+    margin-right: auto;
+    /* Push brand to the left */
+}
+
+/* Navbar items container */
+.navbar-nav {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    flex: 0;
+    justify-content: center;
+    /* Center items on larger screens */
+}
+
+/* Navbar items */
+.navbar-nav .nav-item {
+    margin: 0 10px;
+    position: relative;
+}
+
+/* Navbar links */
+.navbar-nav .nav-link {
+    text-decoration: none;
+    color: var(--navbar-text-light);
+    padding: 10px;
+    display: block;
+}
+
+/* Navbar link hover */
+.navbar-nav .nav-link:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+/* Dropdown styles */
+.navbar-nav .dropdown {
+    position: relative;
+}
+
+.navbar-nav .dropdown-toggle {
+    cursor: pointer;
+}
+
+.navbar-nav .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--navbar-background-light);
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    min-width: 200px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    z-index: 1000;
+}
+
+.navbar-nav .dropdown-menu.show {
+    display: block;
+}
+
+.navbar-nav .dropdown-menu .dropdown-item {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: var(--navbar-text-light);
+    display: block;
+}
+
+.navbar-nav .dropdown-menu .dropdown-item:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+.navbar-nav .dropdown-menu .dropdown-divider {
+    height: 1px;
+    margin: 5px 0;
+    background-color: #ddd;
+}
+
+/* Search form styles */
+.search-form {
+    display: flex;
+    align-items: center;
+    margin: 0 20px;
+    /* Adjust margin to provide space from the theme toggle */
+}
+
+/* Search input */
+.search-form .form-control {
+    margin-right: 10px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+/* Search button */
+.search-form .btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+/* Search button hover */
+.search-form .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Theme Toggle styles */
+.toggle-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-left: 20px;
+    /* Space from other elements */
+    z-index: 1000;
+    /* Ensure it stays on top */
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: #2196F3;
+}
+
+input:checked+.slider:before {
+    transform: translateX(26px);
+}
+
+.toggle-icon {
+    margin-left: 10px;
+    font-size: 24px;
+}
+
+.sun {
+    color: #FFD700;
+}
+
+.moon {
+    color: #4A90E2;
+}
+
+/* Dark mode styles */
+.dark-mode {
+    background-color: var(--background-color-dark);
+    color: var(--text-color-dark);
+}
+
+.dark-mode .navbar {
+    background-color: var(--navbar-background-dark);
+    color: var(--navbar-text-dark);
+}
+
+.dark-mode .navbar .nav-link {
+    color: var(--navbar-text-dark);
+}
+
+.dark-mode .navbar .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .dropdown-menu {
+    background-color: var(--navbar-background-dark);
+}
+
+.dark-mode .dropdown-menu .dropdown-item {
+    color: var(--navbar-text-dark);
+}
+
+.dark-mode .search-form .btn {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Separator line */
+.navbar-separator {
+    height: 2px;
+    background-color: var(--navbar-separator-color);
+    margin: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+
+    /* For tablets and smaller screens */
+    .navbar-nav {
+        display: block;
+        /* Show navbar items in a block layout */
+        width: 100%;
+        /* Ensure full width */
+    }
+
+    .toggle-wrapper {
+        margin-left: 0;
+        /* Remove left margin */
+        margin-top: 10px;
+        /* Add top margin */
+        width: 100%;
+        /* Ensure proper alignment */
+        justify-content: center;
+        /* Center on small screens */
+    }
+
+    .search-form {
+        margin: 10px 0;
+        /* Adjust margins */
+        width: 100%;
+        /* Full width on small screens */
+    }
+
+    .search-form .form-control {
+        flex: 1;
+        /* Allow input to fill available space */
+    }
+
+    .search-form .btn {
+        flex-shrink: 0;
+        /* Prevent button from shrinking */
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* For mobile screens */
+    .navbar {
+        flex-direction: column;
+        /* Stack items vertically */
+        align-items: flex-start;
+        /* Align items to the start */
+    }
+
+    .navbar-nav {
+        display: block;
+        /* Display navbar items in a block layout */
+        width: 100%;
+        /* Full width */
+    }
+
+    .navbar-nav .nav-item {
+        margin: 10px 0;
+        /* Space items vertically */
+    }
+
+    .search-form {
+        width: 100%;
+        /* Full width on small screens */
+    }
+
+    .toggle-wrapper {
+        margin-left: 0;
+        /* Remove left margin */
+        margin-top: 10px;
+        /* Add top margin */
+        width: 100%;
+        /* Full width on small screens */
+        justify-content: center;
+        /* Center on small screens */
+    }
+}

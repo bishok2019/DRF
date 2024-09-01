@@ -1,0 +1,333 @@
+:root {
+    --background-color: #efefef;
+    --text-color: black;
+    --navbar-background-light: #f8f9fa;
+    /* Light background for day mode */
+    --navbar-text-light: black;
+    /* Text color for day mode */
+    --navbar-background-dark: #000000;
+    /* Dark background for night mode */
+    --navbar-text-dark: white;
+    /* Text color for night mode */
+    --navbar-separator-color: #e0e0e0;
+}
+
+[data-theme='dark'] {
+    --background-color: black;
+    --text-color: white;
+}
+
+/* General styles */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
+
+/* Theme Toggle styles */
+.toggle-wrapper {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: #2196F3;
+}
+
+input:checked+.slider:before {
+    transform: translateX(26px);
+}
+
+.toggle-icon {
+    margin-left: 10px;
+    font-size: 24px;
+}
+
+.sun {
+    color: #FFD700;
+}
+
+.moon {
+    color: #4A90E2;
+}
+
+/* Navbar container */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--navbar-background-light);
+    color: var(--navbar-text-light);
+    position: relative;
+    z-index: 1000;
+    flex-wrap: wrap;
+}
+
+/* Brand styling */
+.navbar-brand {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: var(--navbar-text-light);
+    /* Default text color */
+    margin-right: auto;
+}
+
+/* Navbar items container */
+.navbar-nav {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    flex: 0;
+    justify-content: center;
+}
+
+/* Navbar items */
+.navbar-nav .nav-item {
+    margin: 0 10px;
+    position: relative;
+}
+
+/* Navbar links */
+.navbar-nav .nav-link {
+    text-decoration: none;
+    color: var(--navbar-text-light);
+    padding: 10px;
+    display: block;
+}
+
+/* Navbar link hover */
+.navbar-nav .nav-link:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+/* Dropdown styles */
+.navbar-nav .dropdown {
+    position: relative;
+}
+
+.navbar-nav .dropdown-toggle {
+    cursor: pointer;
+}
+
+.navbar-nav .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--navbar-background-light);
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    min-width: 200px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    z-index: 1000;
+}
+
+.navbar-nav .dropdown-menu.show {
+    display: block;
+}
+
+.navbar-nav .dropdown-menu .dropdown-item {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: var(--navbar-text-light);
+    display: block;
+}
+
+.navbar-nav .dropdown-menu .dropdown-item:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+.navbar-nav .dropdown-menu .dropdown-divider {
+    height: 1px;
+    margin: 5px 0;
+    background-color: #ddd;
+}
+
+/* Search form styles */
+.search-form {
+    display: flex;
+    align-items: center;
+    margin: 0 20px;
+}
+
+/* Search input */
+.search-form .form-control {
+    margin-right: 10px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+/* Search button */
+.search-form .btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+/* Search button hover */
+.search-form .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Dark mode styles */
+[data-theme='dark'] .navbar {
+    background-color: var(--navbar-background-dark);
+    color: var(--navbar-text-dark);
+}
+
+[data-theme='dark'] .navbar .nav-link {
+    color: var(--navbar-text-dark);
+}
+
+[data-theme='dark'] .navbar .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] .dropdown-menu {
+    background-color: var(--navbar-background-dark);
+}
+
+[data-theme='dark'] .dropdown-menu .dropdown-item {
+    color: var(--navbar-text-dark);
+}
+
+[data-theme='dark'] .search-form .btn {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Ensure the brand text color matches the navbar background */
+[data-theme='dark'] .navbar-brand {
+    color: var(--navbar-text-dark);
+    /* White text in dark mode */
+}
+
+[data-theme='light'] .navbar-brand {
+    color: var(--navbar-text-light);
+    /* Black text in light mode */
+}
+
+[data-theme='dark'] .form {
+    color: var(--navbar-text-dark);
+    /* White text in dark mode */
+}
+
+[data-theme='light'] .form {
+    color: var(--navbar-text-light);
+    /* Black text in light mode */
+}
+
+/* Separator line */
+.navbar-separator {
+    height: 4px;
+    background-color: var(--navbar-separator-color);
+    margin: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .navbar-nav {
+        display: block;
+        width: 100%;
+    }
+
+    .toggle-wrapper {
+        margin-left: 0;
+        margin-top: 10px;
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .search-form {
+        margin: 10px 0;
+        width: 100%;
+    }
+
+    .search-form .form-control {
+        flex: 1;
+    }
+
+    .search-form .btn {
+        flex-shrink: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-nav {
+        display: block;
+        width: 100%;
+    }
+
+    .navbar-nav .nav-item {
+        margin: 10px 0;
+    }
+
+    .search-form {
+        width: 100%;
+    }
+
+    .toggle-wrapper {
+        margin-right: -1px;
+        margin-top: 10px;
+        width: 100%;
+        justify-content: flex-end;
+    }
+}
