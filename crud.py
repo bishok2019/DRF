@@ -52,7 +52,7 @@ def create_data():
     # 'id':20,
     'name': 'Everest',
     'roll':124,
-    'city':'Soluk'
+    'city':'Solu'
 }
     headers = {'content-Type':'application/json'}
 

@@ -7,7 +7,6 @@ from rest_framework.routers import DefaultRouter
 router = DefaultRouter()
 #Register StudentVIewSet with Router
 router.register('studentapi',views.StudentModelViewSet1, basename='student')
-# router.register('studentapi-readonly', views.StudentModelViewSet2, basename='student-readonly')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
