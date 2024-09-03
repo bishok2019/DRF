@@ -50,9 +50,9 @@ def delete_data():
 def create_data():
     data ={
     # 'id':20,
-    'name': 'Everest',
-    'roll':124,
-    'city':'Solu'
+    'name': 'Bishok',
+    'roll':101,
+    'city':'KTM'
 }
     headers = {'content-Type':'application/json'}
 

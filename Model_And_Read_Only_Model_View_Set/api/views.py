@@ -9,11 +9,11 @@ class StudentModelViewSet1(viewsets.ModelViewSet):
     queryset  = Student.objects.all()
     serializer_class = StudentSerializer  # Ensure this is set correctly
     authentication_classes = [SessionAuthentication]    
-    permission_classes = [DjangoModelPermissionsOrAnonReadOnly]
+    # permission_classes = [DjangoModelPermissionsOrAnonReadOnly]
     # permission_classes = [DjangoModelPermissions]
     # permission_classes = [IsAuthenticatedOrReadOnly]
     # permission_classes = [IsAdminUser]
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 
     def get_serializer_class(self):
         if not self.serializer_class:
