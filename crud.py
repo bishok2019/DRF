@@ -19,10 +19,10 @@ def student_get(id = None):
 def update_data():
     
     data ={
-    'id':8,
-    'name': 'Raj',
-    'roll':123,
-    'city':'Udaypur'
+    'id':6,
+    # 'name': 'Raj',
+    'roll':104,
+    # 'city':'Udaypur'
     }
     headers = {'content-Type':'application/json'}
     json_data = json.dumps(data)
@@ -65,10 +65,10 @@ def create_data():
 def update_p_data():
     
     data ={
-    'id':8,
-    'name': 'Raju',
-    # 'roll':123,
-    'city':'Udaypur'
+    'id':6,
+    # 'name': 'Raju',
+    'roll':104,
+    # 'city':'Udaypur'
     }
     headers = {'content-Type':'application/json'}
     json_data = json.dumps(data)
@@ -78,8 +78,8 @@ def update_p_data():
 # update_data()
 
 # student_get()
-create_data()
-# update_p_data()
+# create_data()
+update_p_data()
 # update_data()
 # delete_data()
 student_get()

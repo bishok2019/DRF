@@ -13,3 +13,5 @@ class CustomAuthToken(ObtainAuthToken):
             'user_id': user.pk,
             'email':user.email
         })
+# get token with username and password if created , if not it will create a new one
+#  http POST http://127.0.0.1:8000/gettoken/ username="superuser" password="superuser"

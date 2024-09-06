@@ -11,7 +11,8 @@ class Student(models.Model):
     roll = models.IntegerField()
     city = models.CharField(max_length = 100)
 
-# This signal creates Auth token for users
+# This signal ensures Auth token for newly users
+# in case of not to apply auth token will not automatically generated, then we can use CustomAuthToken
 @receiver(post_save, sender=settings.AUTH_USER_MODEL)
 def create_auth_token(sender, instance=None, created=False,**kwargs):
     if created:
