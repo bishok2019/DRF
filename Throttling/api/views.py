@@ -11,4 +11,5 @@ class StudentModelViewSet1(viewsets.ModelViewSet):
     serializer_class = StudentSerializer
     authentication_classes = [SessionAuthentication]
     permission_classes =[IsAuthenticatedOrReadOnly] 
-    throttle_classes = [AnonRateThrottle, ThrottleRate]
+    throttle_classes = [AnonRateThrottle, UserRateThrottle]
+    # throttle_classes = [AnonRateThrottle, ThrottleRate]
