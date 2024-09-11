@@ -50,10 +50,9 @@ def delete_data():
 def create_data():
     data ={
     # 'id':20,
-    'name': 'Bishok',
-    'roll':101,
-    'city':'KTM'
-}
+    'name': 'Kendal',
+    'roll':3,
+    'city':'Luxumberg'}
     headers = {'content-Type':'application/json'}
 
     json_data = json.dumps(data)
@@ -79,7 +78,7 @@ def update_p_data():
 
 # student_get()
 # create_data()
-update_p_data()
+# update_p_data()
 # update_data()
 # delete_data()
 student_get()
