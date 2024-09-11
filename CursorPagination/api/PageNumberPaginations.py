@@ -7,3 +7,4 @@ class MyPageNumberPagination(PageNumberPagination):
     page_size_query_description = 'records'
     max_page_size = 7
     last_page_strings = 'end'
+    

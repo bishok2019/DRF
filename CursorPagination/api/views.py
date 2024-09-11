@@ -3,12 +3,14 @@ from .serializers import StudentSerializer
 from rest_framework.generics import GenericAPIView
 from rest_framework.mixins import ListModelMixin, CreateModelMixin, RetrieveModelMixin, UpdateModelMixin, DestroyModelMixin
 
-from.mypaginations import MyPageNumberPagination
+from.PageNumberPaginations import MyPageNumberPagination
+from.CursorPaginations import MyCursorPagination
 
 class StudentListAndCreate(GenericAPIView, ListModelMixin, CreateModelMixin):
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
-    pagination_class = MyPageNumberPagination
+    pagination_class = MyCursorPagination
+    # pagination_class = MyPageNumberPagination
 
     def get(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs)
