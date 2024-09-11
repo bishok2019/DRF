@@ -1,26 +1,14 @@
-# from django.shortcuts import render
-# from .serializers import StudentSerializer
-# from rest_framework import viewsets
-# from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
-# from .models import Student
-# from rest_framework.authentication import SessionAuthentication
-# from rest_framework.permissions import IsAuthenticated
-# # Create your views here.
-
-
-# class studentList(ListCreateAPIView,RetrieveUpdateDestroyAPIView):
-#     queryset = Student.objects.all()
-#     serializer_class = StudentSerializer
-#     # authentication_classes = [SessionAuthentication]
-#     # permission_classes = [IsAuthenticated]
 from .models import Student
 from .serializers import StudentSerializer
 from rest_framework.generics import GenericAPIView
 from rest_framework.mixins import ListModelMixin, CreateModelMixin, RetrieveModelMixin, UpdateModelMixin, DestroyModelMixin
 
+from.mypaginations import MyPageNumberPagination
+
 class StudentListAndCreate(GenericAPIView, ListModelMixin, CreateModelMixin):
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
+    pagination_class = MyPageNumberPagination
 
     def get(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs)
